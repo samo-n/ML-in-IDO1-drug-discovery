@@ -1,8 +1,5 @@
-from __A_knjiznice import *
+# from __A_knjiznice import *
 
-import pandas as pd
-import numpy as np
-from concurrent.futures import ThreadPoolExecutor
 from PyFingerprint.fingerprint import get_fingerprint
 
 import pandas as pd

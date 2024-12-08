@@ -170,7 +170,7 @@ from sklearn.feature_selection import RFE
 import multiprocessing
 
 
-# new
+# miscellaneous 
 import math
 import requests
 import pandas as pd
@@ -181,24 +181,13 @@ from rdkit.Chem import PandasTools
 
 from rdkit import Chem, rdBase
 from rdkit.Chem.MolStandardize import rdMolStandardize
-import pandas as pd
 
 import math
 from pathlib import Path
 from zipfile import ZipFile
 from tempfile import TemporaryDirectory
 
-import numpy as np
-import pandas as pd
-from rdkit.Chem import PandasTools
-from chembl_webresource_client.new_client import new_client
-from tqdm.auto import tqdm
 
-from pathlib import Path
-import math
-
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import matplotlib.patches as mpatches
@@ -222,35 +211,3 @@ from imblearn.under_sampling import RandomUnderSampler, TomekLinks
 from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
 import optuna
-
-
-
-import math
-from pathlib import Path
-from zipfile import ZipFile
-from tempfile import TemporaryDirectory
-
-import numpy as np
-import pandas as pd
-from rdkit.Chem import PandasTools
-from chembl_webresource_client.new_client import new_client
-from tqdm.auto import tqdm
-
-
-### some basic functions
-try:
-    import requests
-except ImportError:
-    import subprocess
-    subprocess.check_call(["python", '-m', 'pip', 'install', 'requests'])
-    import importlib
-    importlib.invalidate_caches()
-    requests = importlib.import_module('requests')
-
-PATH=r'/Users/samonose/PycharmProjects/IDO_inhibitors_ML_predictions/dir1'
-PATH_OUTPUT=r'/Users/samonose/PycharmProjects/IDO_inhibitors_ML_predictions/dir1'
-
-[os.makedirs(path) for path in [PATH, PATH_OUTPUT] if not os.path.exists(path)]
-
-os.chdir(PATH)
-print(os.getcwd())
