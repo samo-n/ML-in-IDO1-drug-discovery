@@ -5,4 +5,4 @@ path = '/Users/samonose/PycharmProjects/IDO_inhibitors_ML_predictions/dir1'
 path_files = '/Users/samonose/PycharmProjects/IDO_inhibitors_ML_predictions/dir1'
 
 # insert random seed you will use in the files
-random_seed = 42
+random_seed = 99
