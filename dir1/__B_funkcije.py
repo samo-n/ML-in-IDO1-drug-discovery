@@ -129,6 +129,55 @@ def drop_invalid_smiles(X):
 
 
 ######### 
+
+import numpy as np
+from multiprocessing import Pool
+
+def make_predictions_wrapper(model_data):
+    """Wrapper function to make predictions for a chunk of data."""
+    model, data_chunk = model_data
+    return model.predict(data_chunk), model.predict_proba(data_chunk)
+
+def make_predictions_in_batches(model, data, num_chunks=12):
+    """
+    Make predictions on data in batches using multiprocessing.
+
+    Parameters:
+    - model: The trained model to use for predictions.
+    - data: The input data for which predictions are to be made.
+    - num_chunks: The number of chunks to split the data into for parallel processing.
+
+    Returns:
+    - predictions: The predicted classes.
+    - probabilities: The predicted probabilities for each class.
+    """
+    num_samples = data.shape[0]
+    predictions = []
+    probabilities = []
+
+    # Calculate chunk size
+    chunk_size = max(1, num_samples // num_chunks)
+
+    # Create chunks of data
+    chunks = [data[i:i + chunk_size] for i in range(0, num_samples, chunk_size)]
+
+    # Prepare arguments for multiprocessing
+    args = [(model, chunk) for chunk in chunks]
+
+    # Use multiprocessing Pool to process chunks in parallel
+    with Pool(processes=num_chunks) as pool:
+        results = pool.map(make_predictions_wrapper, args)
+
+    # Unzip the results
+    for pred, proba in results:
+        predictions.append(pred)
+        probabilities.append(proba)
+
+    # Concatenate results
+    return np.concatenate(predictions), np.concatenate(probabilities)
+
+
+
 # import os
 # import pandas as pd
 # from concurrent.futures import ProcessPoolExecutor
