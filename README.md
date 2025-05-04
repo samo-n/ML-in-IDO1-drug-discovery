@@ -1,5 +1,6 @@
 # IDO1 drug discover using ML
-In this repository I am sharing the work I did as part of my master's thesis "[Discovery of new IDO1 inhibitors with machine learning](https://repozitorij.uni-lj.si/Dokument.php?id=209701&lang=slv)"
+In this repository I am sharing the work I did as part of my master's thesis "[APPLICATION OF MACHINE LEARNING IN THE DESIGN OF NEW
+INDOLEAMINE-2,3-DIOXYGENASE 1 INHIBITORS](https://repozitorij.uni-lj.si/Dokument.php?id=209701&lang=slv)"
 
 ## Why?
 
